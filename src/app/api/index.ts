@@ -8,7 +8,7 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const ITEMS_PER_PAGE = 12;
 
 export async function getRecipes(
-  params: Record<string, string>
+  params: Record<string, string>,
 ): Promise<CuisineResponse> {
   const page = Number(params.page) || 1;
   const offset = (page - 1) * ITEMS_PER_PAGE;

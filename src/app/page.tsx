@@ -1,49 +1,46 @@
-import Link from "next/link";
-import Image from "next/image";
+import { Suspense } from "react";
 import { getRecipes } from "@/app/api";
 import SearchBar from "@/app/components/Home/SearchBar";
+import RecipesGrid from "@/app/components/Home/RecipesGrid";
+import Pagination from "@/app/components/UI/Pagination";
+import SearchResultsInfo from "@/app/components/Home/SearchResultsInfo";
 
 interface HomePageProps {
   searchParams?: Promise<Record<string, string>>;
 }
 
 export default async function Home({ searchParams }: HomePageProps) {
-  const params = await searchParams;
-  const { results: recipes } = await getRecipes(params || {});
+  const params = (await searchParams) || {};
+  const page = Number(params?.page) || 1;
+  const { results: recipes, totalResults } = await getRecipes({
+    ...params,
+    page: page.toString(),
+  });
+
+  const totalPages = Math.ceil(totalResults / 12);
+
+  const createPageUrl = (pageNum: number) => {
+    const newParams = new URLSearchParams(params);
+    newParams.set("page", pageNum.toString());
+    return `?${newParams.toString()}`;
+  };
 
   return (
     <div>
       <header>
         <SearchBar />
       </header>
-      <main>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-          {recipes.length > 0 &&
-            recipes.map((recipe) => (
-              <Link
-                key={recipe.id}
-                href={`/recipes/${recipe.id}`}
-                className="bg-white dark:bg-zinc-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="object-cover"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-4">
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-2">
-                    {recipe.title}
-                  </h2>
-                </div>
-              </Link>
-            ))}
-        </div>
+      <main className="flex flex-col gap-4">
+        <SearchResultsInfo totalResults={totalResults} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <RecipesGrid recipes={recipes} />
+        </Suspense>
+        <Pagination
+          totalPages={totalPages}
+          page={page}
+          createPageUrl={createPageUrl}
+        />
       </main>
-      <footer></footer>
     </div>
   );
 }

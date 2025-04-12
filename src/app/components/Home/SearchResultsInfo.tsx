@@ -9,7 +9,7 @@ export default function SearchResultsInfo({
     <h2 className="text-xl font-semibold px-4">
       {totalResults > 0
         ? `Найдено ${totalResults} рецептов`
-        : "Рецепты не найдены"}
+        : 'Рецепты не найдены'}
     </h2>
   );
 }

@@ -36,26 +36,34 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/yatochkaaa/next_nextlevel-food.git
+   ```
 2. Install dependencies:
    ```bash
    npm install
+   ```
 3. Run the project:
    ```bash
    npm run dev
+   ```
 
 ---
 
 ## 🚀 Build and Deployment
 
 ### Running in Production Mode
+
 1. Build the project:
    ```bash
    npm run build
+   ```
+
 #### This will generate an optimized production build in the .next folder.
 
 2. Start the application:
    ```bash
    npm start
+   ```
+
 #### After this, your app will be available at http://localhost:3000 by default. To change the port, use the following command:
 
 ---
@@ -63,10 +71,12 @@
 ## 🌐 Configuration
 
 1. API Key: To use the Spoonacular API, you will need to set up an API key.
+
 - Create an account on Spoonacular and get your API key.
 - Add the API key to your .env file:
-   ``` bash
-   NEXT_PUBLIC_API_KEY=your-api-key-here
+  ```bash
+  NEXT_PUBLIC_API_KEY=your-api-key-here
+  ```
 
 ---
 

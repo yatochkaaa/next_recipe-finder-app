@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Cuisine } from "@/app/types/cuisine";
+import Link from 'next/link';
+import Image from 'next/image';
+import { Cuisine } from '@/app/types/cuisine';
 interface RecipeItemProps {
   cuisine: Cuisine;
 }
@@ -29,4 +29,3 @@ export default function RecipeItem({ cuisine }: RecipeItemProps) {
     </Link>
   );
 }
-

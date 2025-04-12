@@ -1,5 +1,5 @@
-import { Cuisine } from "@/app/types/cuisine";
-import RecipeItem from "@/app/components/Home/RecipeItem";
+import { Cuisine } from '@/app/types/cuisine';
+import RecipeItem from '@/app/components/Home/RecipeItem';
 
 interface RecipesGridProps {
   recipes: Cuisine[];

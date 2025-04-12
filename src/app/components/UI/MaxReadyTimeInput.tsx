@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function MaxReadyTimeInput() {
-  const [maxTime, setMaxTime] = useState("");
+  const [maxTime, setMaxTime] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (value === "" || (Number(value) >= 0 && Number(value) <= 300)) {
+    if (value === '' || (Number(value) >= 0 && Number(value) <= 300)) {
       setMaxTime(value);
     }
   };

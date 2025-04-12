@@ -1,9 +1,9 @@
-import { Suspense } from "react";
-import { getRecipes } from "@/app/api";
-import SearchBar from "@/app/components/Home/SearchBar";
-import RecipesGrid from "@/app/components/Home/RecipesGrid";
-import Pagination from "@/app/components/UI/Pagination";
-import SearchResultsInfo from "@/app/components/Home/SearchResultsInfo";
+import { Suspense } from 'react';
+import { getRecipes } from '@/app/api';
+import SearchBar from '@/app/components/Home/SearchBar';
+import RecipesGrid from '@/app/components/Home/RecipesGrid';
+import Pagination from '@/app/components/UI/Pagination';
+import SearchResultsInfo from '@/app/components/Home/SearchResultsInfo';
 
 interface HomePageProps {
   searchParams?: Promise<Record<string, string>>;
@@ -21,7 +21,7 @@ export default async function Home({ searchParams }: HomePageProps) {
 
   const createPageUrl = (pageNum: number) => {
     const newParams = new URLSearchParams(params);
-    newParams.set("page", pageNum.toString());
+    newParams.set('page', pageNum.toString());
     return `?${newParams.toString()}`;
   };
 

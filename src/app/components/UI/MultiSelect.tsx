@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 
 interface MultiSelectProps {
   label?: string;
@@ -9,7 +9,7 @@ interface MultiSelectProps {
 }
 
 export default function MultiSelect({
-  label = "Select options",
+  label = 'Select options',
   options,
   queryParam,
 }: MultiSelectProps) {
@@ -26,8 +26,8 @@ export default function MultiSelect({
         setIsOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleSelected = (value: string) => {
@@ -47,7 +47,7 @@ export default function MultiSelect({
 
   const getSelectedLabels = () => {
     const maxChars = 30;
-    const displayText = selected.join(", ");
+    const displayText = selected.join(', ');
 
     if (displayText.length > maxChars) {
       const visibleLabels: string[] = [];
@@ -60,7 +60,7 @@ export default function MultiSelect({
       }
 
       const remaining = selected.length - visibleLabels.length;
-      return `${visibleLabels.join(", ")} +${remaining}`;
+      return `${visibleLabels.join(', ')} +${remaining}`;
     }
 
     return displayText;
@@ -110,7 +110,7 @@ export default function MultiSelect({
         </div>
       )}
 
-      <input type="hidden" name={queryParam} value={selected.join(",")} />
+      <input type="hidden" name={queryParam} value={selected.join(',')} />
     </div>
   );
 }

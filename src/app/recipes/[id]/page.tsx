@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { getRecipe } from "@/app/api";
+import Image from 'next/image';
+import { getRecipe } from '@/app/api';
 
 interface RecipePageProps {
   params: Promise<{
@@ -15,7 +15,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
     <div className="max-w-4xl mx-auto py-8">
       <div className="relative h-96 mb-8">
         <Image
-          src={recipe.image || "https://placehold.co/600x400/png?text=Food+Image"}
+          src={
+            recipe.image || 'https://placehold.co/600x400/png?text=Food+Image'
+          }
           alt={recipe.title}
           className="rounded-lg object-cover"
           fill
@@ -52,7 +54,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         <h2 className="text-2xl font-semibold mb-4">Instructions</h2>
         <div
           className="prose prose-zinc dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: recipe.instructions || "" }}
+          dangerouslySetInnerHTML={{ __html: recipe.instructions || '' }}
         />
       </div>
     </div>

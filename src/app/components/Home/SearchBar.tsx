@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import SearchInput from "@/app/components/UI/SearchInput";
-import { CUISINES_LIST } from "@/app/consts";
-import MaxReadyTimeInput from "@/app/components/UI/MaxReadyTimeInput";
-import MultiSelect from "@/app/components/UI/MultiSelect";
-import SearchBtn from "@/app/components/Home/SearchBtn";
+import SearchInput from '@/app/components/UI/SearchInput';
+import { CUISINES_LIST } from '@/app/consts';
+import MaxReadyTimeInput from '@/app/components/UI/MaxReadyTimeInput';
+import MultiSelect from '@/app/components/UI/MultiSelect';
+import SearchBtn from '@/app/components/Home/SearchBtn';
 
 export default function SearchBar() {
   return (

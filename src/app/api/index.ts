@@ -1,9 +1,9 @@
-"use server";
+'use server';
 
-import { CuisineResponse } from "@/app/types/cuisine";
-import { Recipe } from "@/app/types/recipe";
+import { CuisineResponse } from '@/app/types/cuisine';
+import { Recipe } from '@/app/types/recipe';
 
-const baseUrl = "https://api.spoonacular.com/recipes";
+const baseUrl = 'https://api.spoonacular.com/recipes';
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const ITEMS_PER_PAGE = 12;
 
@@ -21,7 +21,7 @@ export async function getRecipes(
   }).toString();
 
   const response = await fetch(`${baseUrl}/complexSearch?${query}`, {
-    method: "GET",
+    method: 'GET',
     next: {
       revalidate: 60,
     },

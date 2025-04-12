@@ -6,12 +6,14 @@ interface MultiSelectProps {
   label?: string;
   options: string[];
   queryParam: string;
+  onChange: (value: string) => void;
 }
 
 export default function MultiSelect({
   label = 'Select options',
   options,
   queryParam,
+  onChange,
 }: MultiSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,6 +37,7 @@ export default function MultiSelect({
       ? selected.filter((v: string) => v !== value)
       : [...selected, value];
     setSelected(newSelected);
+    onChange(newSelected.join(','));
   };
 
   const toggleOption = (value: string) => {

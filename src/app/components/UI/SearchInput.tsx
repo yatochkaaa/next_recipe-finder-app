@@ -1,4 +1,8 @@
-export default function SearchInput() {
+interface SearchInputProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function SearchInput({ onChange }: SearchInputProps) {
   return (
     <div className="relative w-full max-w-sm">
       <div className="relative">
@@ -7,6 +11,7 @@ export default function SearchInput() {
           name="query"
           placeholder="Search..."
           className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300"
+          onChange={onChange}
         />
         <svg
           className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"

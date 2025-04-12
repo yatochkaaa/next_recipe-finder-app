@@ -2,13 +2,20 @@
 
 import { useState } from 'react';
 
-export default function MaxReadyTimeInput() {
+interface MaxReadyTimeInputProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function MaxReadyTimeInput({
+  onChange,
+}: MaxReadyTimeInputProps) {
   const [maxTime, setMaxTime] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value === '' || (Number(value) >= 0 && Number(value) <= 300)) {
       setMaxTime(value);
+      onChange(e);
     }
   };
 

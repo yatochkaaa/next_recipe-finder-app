@@ -12,15 +12,21 @@ interface HomePageProps {
 export default async function Home({ searchParams }: HomePageProps) {
   const params = (await searchParams) || {};
   const page = Number(params?.page) || 1;
+
+  // Filter out empty params
+  const filteredParams = Object.fromEntries(
+    Object.entries(params).filter(([_, value]) => value !== '')
+  );
+
   const { results: recipes, totalResults } = await getRecipes({
-    ...params,
+    ...filteredParams,
     page: page.toString(),
   });
 
   const totalPages = Math.ceil(totalResults / 12);
 
   const createPageUrl = (pageNum: number) => {
-    const newParams = new URLSearchParams(params);
+    const newParams = new URLSearchParams(filteredParams);
     newParams.set('page', pageNum.toString());
     return `?${newParams.toString()}`;
   };

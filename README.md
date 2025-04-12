@@ -11,8 +11,6 @@
 - 📱 **Responsive layout**, optimized for different screen sizes.
 - 🎨 **Modern UI**, built with **Tailwind CSS**.
 - ⚙️ **Integration with Spoonacular API** to fetch recipe data.
-- 🔄 Manage search parameters via **URL** (using `useSearchParams`).
-- 🌍 Multi-language interface support (if localization is added).
 
 ---
 
@@ -21,7 +19,6 @@
 - Built with **Next.js 13+** and **App Router**.
 - **TypeScript** for strict type safety.
 - **Tailwind CSS** for styling the user interface.
-- **Composables** and **hooks** for managing state and URL parameters.
 - **Component-based approach**: the application consists of many small, reusable components.
 - **API calls** using environment variables to access the Spoonacular API.
 

@@ -3,6 +3,9 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({ onChange }: SearchInputProps) {
+  const searchParams = new URLSearchParams(window.location.search);
+  const initialQuery = searchParams.get('query') || '';
+
   return (
     <div className="relative w-full max-w-sm">
       <div className="relative">
@@ -10,6 +13,7 @@ export default function SearchInput({ onChange }: SearchInputProps) {
           type="text"
           name="query"
           placeholder="Search..."
+          defaultValue={initialQuery}
           className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300"
           onChange={onChange}
         />

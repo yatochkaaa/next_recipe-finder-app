@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 interface MultiSelectProps {
   label?: string;
@@ -15,9 +16,13 @@ export default function MultiSelect({
   queryParam,
   onChange,
 }: MultiSelectProps) {
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(() => {
+    const paramValue = searchParams.get(queryParam);
+    return paramValue ? paramValue.split(',') : [];
+  });
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,6 +51,7 @@ export default function MultiSelect({
 
   const clearSelection = () => {
     setSelected([]);
+    onChange('');
   };
 
   const getSelectedLabels = () => {

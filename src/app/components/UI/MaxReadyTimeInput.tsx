@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 interface MaxReadyTimeInputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -9,7 +10,15 @@ interface MaxReadyTimeInputProps {
 export default function MaxReadyTimeInput({
   onChange,
 }: MaxReadyTimeInputProps) {
+  const searchParams = useSearchParams();
   const [maxTime, setMaxTime] = useState('');
+
+  useEffect(() => {
+    const maxReadyTime = searchParams.get('maxReadyTime');
+    if (maxReadyTime) {
+      setMaxTime(maxReadyTime);
+    }
+  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

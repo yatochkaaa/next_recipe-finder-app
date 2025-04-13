@@ -1,6 +1,7 @@
 # 🥘 Recipe Explorer
 
 **Recipe Explorer** is a modern web application built with **Next.js**, allowing users to search and explore recipes from various cuisines around the world. The app provides an intuitive interface for searching recipes with filtering options.
+- **[DEMO LINK](https://next-recipe-finder-app-vsnv.vercel.app/)**
 
 ---
 

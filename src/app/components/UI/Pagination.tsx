@@ -18,12 +18,12 @@ export default function Pagination({
           href={createPageUrl(page - 1)}
           className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-zinc-800"
         >
-          Назад
+          Previous
         </Link>
       )}
 
       <span className="px-4 py-2">
-        Страница {page} из {totalPages}
+        Page {page} of {totalPages}
       </span>
 
       {page < totalPages && (
@@ -31,7 +31,7 @@ export default function Pagination({
           href={createPageUrl(page + 1)}
           className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-zinc-800"
         >
-          Вперед
+          Next
         </Link>
       )}
     </div>

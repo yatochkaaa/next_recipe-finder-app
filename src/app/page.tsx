@@ -15,7 +15,7 @@ export default async function Home({ searchParams }: HomePageProps) {
 
   // Filter out empty params
   const filteredParams = Object.fromEntries(
-    Object.entries(params).filter(([_, value]) => value !== '')
+    Object.entries(params).filter(([, value]) => value !== '')
   );
 
   const { results: recipes, totalResults } = await getRecipes({

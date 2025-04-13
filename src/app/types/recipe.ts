@@ -1,3 +1,17 @@
+export interface SearchRecipe {
+  id: number;
+  image: string;
+  imageType: string;
+  title: string;
+}
+
+export interface SearchRecipeResponse {
+  number: number;
+  offset: number;
+  results: SearchRecipe[];
+  totalResults: number;
+}
+
 export interface Ingredient {
   id: number;
   aisle: string;
